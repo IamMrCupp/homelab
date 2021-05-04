@@ -1,3 +1,4 @@
 # file: ./homelab/homelab.yml
-# - master playbook for homelab setup
+#   master playbook for homelab setup
 # 
+- import_playbook:  raspberrypi.yml

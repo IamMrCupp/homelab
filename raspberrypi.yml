@@ -1,3 +1,8 @@
 # file:  ./homelab/raspberypi.yml
-# - playbook for all raspberypi servers
+#   playbook for all raspberypi servers
 # 
+- hosts:  raspberrypi
+  roles:
+    - common
+    - cgroups
+    - microk8s
