@@ -1,0 +1,5 @@
+# homelab/group_vars/raspberrypi.yml
+# - variables for use on the RaspberyPi boxes
+
+ansible_user: ubuntu
+ansible_ssh_private_key_file: "~/.ssh/ansible_master"
