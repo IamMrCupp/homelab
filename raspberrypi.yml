@@ -3,6 +3,6 @@
 # 
 - hosts:  raspberrypi
   roles:
-    - common
+#    - sshkeys
     - cgroups
-    - microk8s
+#    - microk8s
