@@ -1,27 +1,16 @@
 # file: homelab/roles/groups/tasks/main.yml
 #   playbook for setting up cgroups for k8s
 #  
-- name: Show cgroups pre-update and reboot
-  shell:  cat /boot/firmware/cmdline.txt
-  register: CGROUPS_PRE_MODIFY
-
-- debug:  msg={{CGROUPS_PRE_MODIFY}}
 
 - name: Modify /boot/firmware/cmdline.txt to enable cgroups for microk8s
   ansible.builtin.lineinfile:
     path: /boot/firmware/cmdline.txt
     state: present
     regexp: '^net\.ifnames=0'
-    line: 'cgroup_enable=memory cgroup_memory=1 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc'
+    line: 'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc'
   become: true
   become_user: root
   register: REBOOT_NEEDED
-
-- name: Show cgroups post-update and pre-reboot
-  shell:  cat /boot/firmware/cmdline.txt
-  register: CGROUPS_POST_MODIFY
-
-- debug:  msg={{CGROUPS_POST_MODIFY}}
 
 - name: Reboot the system if needed
   when: REBOOT_NEEDED is changed
