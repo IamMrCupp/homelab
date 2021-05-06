@@ -1,0 +1,12 @@
+# file: homelab/roles/microk8s/tasks/main.yml
+#   playbook for setting up microk8s via snap
+#  
+
+- name: Install microk8s via snap system
+  snap:
+    name:
+      - microk8s
+    classic: yes
+  become: yes
+  become_user: root
+  
