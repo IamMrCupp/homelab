@@ -9,14 +9,13 @@ This repo contains the various things that make up the homelab setup
 ├── ansible                     <-- ansible related stuff
 │   ├── .gitignore              <-- gitignore file
 │   ├── ansible.cfg             <-- ansible config
-│   ├── group_vars              <-- group variables live here (directory)
-│   │   └── raspberrypi.yml     <-- raspberry pi variables
-│   ├── host_vars               <-- host variables live here (directory)
-│   ├── hosts.yml               <-- inventory file for ansible 
-│   ├── logs                    <-- ansible logs (directory)
-│   ├── playbooks               <-- ansible playbooks live here (directory) 
-│   │   ├── homelab.yml         <-- homelab playbook
-│   │   └── raspberrypi.yml     <-- raspberrypi playbook
+│   ├── group_vars              <-- group variables live here   (DIRECTORY)
+│   │   └── raspberrypi.yml     <-- raspberry pi variables      
+│   ├── host_vars               <-- host variables live here    (DIRECTORY)
+│   ├── hosts.yml               <-- inventory file for ansible  
+│   ├── logs                    <-- ansible logs                (DIRECTORY)
+│   │── homelab.yml             <-- homelab playbook
+│   │── raspberrypi.yml         <-- raspberrypi playbook
 │   └── roles                   <-- roles for ansible live here
 │       ├── cgroups
 │       │   └── tasks
