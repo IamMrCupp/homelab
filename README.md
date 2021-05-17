@@ -3,7 +3,7 @@
 This repo contains the various things that make up the homelab setup
 
 
-## Directory Layout:
+### Directory Layout:
 ``` bash
 ├── README.md                   <-- this file
 ├── ansible                     <-- ansible related stuff
