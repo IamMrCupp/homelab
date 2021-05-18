@@ -23,6 +23,9 @@ The following technologies are in use:
 │       ├── cgroups
 │       │   └── tasks
 │       │       └── main.yml    <-- cgroups modification playbook
+│       ├── containerd
+│       │   └── tasks
+│       │       └── main.yml    <-- containerd playbook
 │       ├── microk8s
 │       │   └── tasks
 │       │       └── main.yml    <-- microk8s playbook (not in use)
