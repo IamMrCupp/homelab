@@ -9,7 +9,7 @@ The following technologies are in use:
 
 Requirements:
 - ansible community module installed via `ansible-galaxy`
-- - `ansible-galaxy collection install community.general`
+-- `ansible-galaxy collection install community.general`
     
 ### Directory Layout:
 ``` 
