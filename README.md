@@ -26,10 +26,16 @@ The following technologies are in use:
 │       │       └── main.yml    <-- cgroups modification playbook
 │       ├── containerd
 │       │   └── tasks
-│       │       └── main.yml    <-- containerd playbook
+│       │       └── main.yml    <-- containerd install playbook
+│       ├── kubernetes
+│       │   └── tasks
+│       │       └── main.yml    <-- kubernetes install playbook
 │       ├── microk8s
 │       │   └── tasks
 │       │       └── main.yml    <-- microk8s playbook (not in use)
+│       └── sysmods
+│           └── tasks
+│               └── main.yml    <-- system mods for kuberentes happen here
 ├── helm                        <-- helm charts
 └── kubernetes                  <-- kuberentes charts
 ```
