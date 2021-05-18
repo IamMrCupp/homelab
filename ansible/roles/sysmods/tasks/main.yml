@@ -10,8 +10,17 @@
   become_user: root
   register: CONTAINERD_CONFIG
 
-- name: load modules for containerd for use now
-  when: CONTAINERD_CONFIG is changed
+
+- name: load kernel modules for containerd for use now (overlay)
+  community.general.modprobe:
+    name: overlay
+    state: present
+
+- name: load kernel modules for containerd for use now (br_netfilter)
+  community.general.modprobe:
+    name: br_netfilter
+    state: present
+
 
 - name: modify sysctl for iptables bridge and ip forwarding
   copy:
@@ -20,6 +29,7 @@
   become: true
   become_user: root
   register: SYSCTL_IP_FORWARD
+
 
 - name: apply system mods via sysctl (without rebooting system)
   when: SYSCTL_IP_FORWARD is changed
