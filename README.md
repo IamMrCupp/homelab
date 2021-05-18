@@ -30,9 +30,6 @@ The following technologies are in use:
 │       ├── microk8s
 │       │   └── tasks
 │       │       └── main.yml    <-- microk8s playbook (not in use)
-│       └── sshkeys
-│           └── tasks
-│               └── main.yml    <-- sshkey setup
 ├── helm                        <-- helm charts
 └── kubernetes                  <-- kuberentes charts
 ```
