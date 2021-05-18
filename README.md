@@ -37,7 +37,7 @@ The following technologies are in use:
 │           └── tasks
 │               └── main.yml    <- system mods for kuberentes happen here
 ├── helm                        <- helm charts
-└── kubernetes                  <- kuberentes charts
+└── kubernetes                  <- kuberentes YAMLs
 ```
 
 
