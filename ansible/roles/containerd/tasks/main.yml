@@ -1,0 +1,9 @@
+# file: homelab/roles/containerd/tasks/main.yml
+#   playbook for setting up containerd 
+#  
+
+- name: Install containerd 
+  apt:
+    pkg:
+      - containerd
+          
