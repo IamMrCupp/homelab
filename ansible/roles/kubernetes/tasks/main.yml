@@ -1,0 +1,33 @@
+# file: homelab/roles/containerd/tasks/main.yml
+#   playbook for setting up containerd 
+#  
+
+- name: Install containerd via apt
+  apt:
+    pkg:
+      - containerd
+  become: yes
+  become_user: root
+
+- name: Create containerd config directory
+  file:
+    path: /etc/containerd
+    state:  directory
+  become: yes
+  become_user: root
+
+- name: Create containerd config and place into /etc/containerd
+  shell:
+    cmd: /usr/bin/containerd config default > config.toml
+    chdir: /etc/containerd/
+    creates: /etc/containerd/config.toml
+  become: yes
+  become_user: root
+
+# - name: Output directory listing for /etc/containerd
+#   shell:
+#     cmd: ls -la
+#     chdir: /etc/containerd
+#   register: CONTAINERD_CONFIG_DIRLISTING
+
+# - debug: msg={{CONTAINERD_CONFIG_DIRLISTING}}
