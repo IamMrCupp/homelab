@@ -2,6 +2,7 @@
 #   playbook for setting up system mods for kubernetes and containerd 
 #  
 
+
 - name: configure kernel module loading for containerd
   copy:
     src: containerd.conf
@@ -15,11 +16,15 @@
   community.general.modprobe:
     name: overlay
     state: present
+  become: true
+  become_user: root
 
 - name: load kernel modules for containerd for use now (br_netfilter)
   community.general.modprobe:
     name: br_netfilter
     state: present
+  become: true
+  become_user: root
 
 
 - name: modify sysctl for iptables bridge and ip forwarding
@@ -35,6 +40,8 @@
   when: SYSCTL_IP_FORWARD is changed
   sysctl:
     reload: yes
+  become: true
+  become_user: root
 
 
 - name: restart containerd to pickup changes
@@ -42,3 +49,5 @@
   systemd:
     name: containerd
     state: restarted
+  become: true
+  become_user: root
