@@ -1,0 +1,15 @@
+# file: homelab/roles/sysmods/tasks/main.yml
+#   playbook for setting up system mods for kubernetes and containerd 
+#  
+
+- name: configure kernel module loading for containerd
+    creates: /etc/modules-load.d/containerd.conf
+
+- name: load modules for containerd for use now
+
+- name: modify sysctl for iptables bridge and ip forwarding
+    creates: /etc/sysctl.d/99-kubernetes-cri.conf
+
+- name: apply system mods via sysctl (without rebooting system)
+
+- name: restart containerd to pickup changes
