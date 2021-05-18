@@ -3,8 +3,9 @@
 Homelab Setup
 
 The following technologies are in use:
-- Ansible
-- Kuberentes
+- [Ansible](https://www.ansible.com/)
+- [containerd](https://containerd.io/)
+- [Kuberentes](https://kubernetes.io/)
     
 ### Directory Layout:
 ``` 
