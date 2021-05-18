@@ -3,11 +3,11 @@
 Homelab Setup
 
 The following technologies are in use:
-    - Ansible
-    - Kuberentes
+* Ansible
+* Kuberentes
     
 ### Directory Layout:
-``` bash
+``` 
 ├── README.md                   <-- this file
 ├── ansible                     <-- ansible related stuff
 │   ├── .gitignore              <-- gitignore file
