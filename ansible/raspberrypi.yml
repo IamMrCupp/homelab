@@ -5,5 +5,5 @@
   roles:
     - cgroups
     - containerd
+    - sysmods
     #- kubernetes 
-    #- sysmods
