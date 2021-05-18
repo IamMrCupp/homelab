@@ -3,8 +3,8 @@
 Homelab Setup
 
 The following technologies are in use:
-* Ansible
-* Kuberentes
+- Ansible
+- Kuberentes
     
 ### Directory Layout:
 ``` 
