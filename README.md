@@ -1,8 +1,11 @@
 # Homelab
 
-This repo contains the various things that make up the homelab setup
+Homelab Setup
 
-
+The following technologies are in use:
+    - Ansible
+    - Kuberentes
+    
 ### Directory Layout:
 ``` bash
 ├── README.md                   <-- this file

@@ -18,8 +18,8 @@
   become: true
   become_user: root
   
-- name: Check cgroup changes post reboot
-  shell:  cat /boot/firmware/cmdline.txt
-  register: CGROUPS_POST_REBOOT
+# - name: Check cgroup changes post reboot
+#   shell:  cat /boot/firmware/cmdline.txt
+#   register: CGROUPS_POST_REBOOT
 
-- debug:  msg={{CGROUPS_POST_REBOOT}}
+# - debug:  msg={{CGROUPS_POST_REBOOT}}
