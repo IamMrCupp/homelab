@@ -6,6 +6,10 @@ The following technologies are in use:
 - [Ansible](https://www.ansible.com/)
 - [containerd](https://containerd.io/)
 - [Kuberentes](https://kubernetes.io/)
+
+Requirements:
+- ansible community module installed via `ansible-galaxy`
+- - `ansible-galaxy collection install community.general`
     
 ### Directory Layout:
 ``` 
