@@ -38,8 +38,8 @@
 
 - name: apply system mods via sysctl (without rebooting system)
   when: SYSCTL_IP_FORWARD is changed
-  sysctl:
-    reload: yes
+  shell:
+    cmd: sysctl --system
   become: true
   become_user: root
 
