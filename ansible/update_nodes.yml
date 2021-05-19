@@ -4,8 +4,12 @@
 - hosts:  raspberrypi
   tasks:
     - name: Update apt repo cache on all nodes 
+      apt:
+        update_cache: yes
 
     - name: Update all packages on the nodes
+      apt:
+        upgrade: yes
 
     - name: Check to see if reboot is needed (kernel updates)
       register: reboot_needed_file
