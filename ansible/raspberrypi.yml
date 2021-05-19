@@ -6,4 +6,4 @@
     - cgroups
     - containerd
     - sysmods
-    #- kubernetes 
+    - kubernetes 
