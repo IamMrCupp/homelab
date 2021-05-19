@@ -2,10 +2,17 @@
 
 Homelab Setup
 
-The following technologies are in use:
+The following technologies are used in the homelab:
+- [Raspberry Pi4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
+- [PicoCluster](https://www.picocluster.com/)
+- [Synology NAS](https://www.synology.com/en-us)
+- [Cisco](https://www.cisco.com/)
+- [Eero](https://eero.com/)
+- [Ubuntu 20.04LTS](https://ubuntu.com/)
 - [Ansible](https://www.ansible.com/)
 - [containerd](https://containerd.io/)
 - [Kuberentes](https://kubernetes.io/)
+- [Calico](https://www.projectcalico.org/)
 
 Requirements:
 - ansible community module installed via `ansible-galaxy`
@@ -27,7 +34,7 @@ Requirements:
         sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
     - Make note of `kubeadm join` command in output from `kubeadm init`
-- Apply network overlay [(calico)](https://www.projectcalico.org/) `kubectl apply -f calico.yaml`
+- Apply network overlay `kubectl apply -f calico.yaml`
 - Join worker nodes
     - SSH to k8s workers: `ssh USERNAME@HOSTNAME`
     - Join k8s cluster
