@@ -1,35 +1,29 @@
 # file: homelab/roles/kubernetes/tasks/main.yml
 #   playbook for setting up kubernetes 
 #  
-
-- name: Import PGP key for kubernetes project apt repo
-  apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
-  become: true
-  become_user: root
-
-
-- name: Configure apt repo for kubernetes project
-  apt_repository:
-    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
-    state: present
-    filename: kubernetes  
-  become: true
-  become_user: root
-
-- name: Update apt cache with new repo info
-  apt:
-    update_cache: yes 
-  become: true
-  become_user: root
+- name: Install k8s related items!!
+  block:
+    - name: Import PGP key for kubernetes project apt repo
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
   
-- name: Install kubernetes base apps 
-  apt:
-    pkg:
-      - kubeadm
-      - kubelet
-      - kubectl 
-    state: present
+    - name: Configure apt repo for kubernetes project
+      apt_repository:
+        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+        filename: kubernetes  
+
+    - name: Update apt cache with new repo info
+      apt:
+        update_cache: yes 
+  
+    - name: Install kubernetes base apps 
+      apt:
+        pkg:
+          - kubeadm
+          - kubelet
+          - kubectl 
+        state: present
   become: true
   become_user: root

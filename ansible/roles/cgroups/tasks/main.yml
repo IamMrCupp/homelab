@@ -1,21 +1,22 @@
 # file: homelab/roles/groups/tasks/main.yml
 #   playbook for setting up cgroups for k8s
 #  
+- name: Modify cgroups and reboot if needed
+  block:
+    - name: Modify /boot/firmware/cmdline.txt to enable cgroups for microk8s
+      ansible.builtin.lineinfile:
+        path: /boot/firmware/cmdline.txt
+        state: present
+        regexp: '^net\.ifnames=0'
+        line: 'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc'
+      register: REBOOT_NEEDED
 
-- name: Modify /boot/firmware/cmdline.txt to enable cgroups for microk8s
-  ansible.builtin.lineinfile:
-    path: /boot/firmware/cmdline.txt
-    state: present
-    regexp: '^net\.ifnames=0'
-    line: 'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc'
-  register: REBOOT_NEEDED
-
-- name: Reboot the system if needed
-  reboot:
-    msg: "Reboot initiated by Ansible due to CGROUP change"
-    reboot_timeout: 300
-    post_reboot_delay: 30
-    test_command: uptime
-  when: REBOOT_NEEDED is changed
-
-  
+    - name: Reboot the system if needed
+      reboot:
+        msg: "Reboot initiated by Ansible due to CGROUP change"
+        reboot_timeout: 300
+        post_reboot_delay: 30
+        test_command: uptime
+      when: REBOOT_NEEDED is changed
+  become: true
+  become_user: root  
