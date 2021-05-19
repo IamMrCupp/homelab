@@ -1,33 +1,19 @@
-# file: homelab/roles/containerd/tasks/main.yml
-#   playbook for setting up containerd 
+# file: homelab/roles/kubernetes/tasks/main.yml
+#   playbook for setting up kubernetes 
 #  
 
-- name: Install containerd via apt
-  apt:
-    pkg:
-      - containerd
-  become: yes
-  become_user: root
+- name: Import PGP key for kubernetes project apt repo
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
 
-- name: Create containerd config directory
-  file:
-    path: /etc/containerd
-    state:  directory
-  become: yes
-  become_user: root
 
-- name: Create containerd config and place into /etc/containerd
-  shell:
-    cmd: /usr/bin/containerd config default > config.toml
-    chdir: /etc/containerd/
-    creates: /etc/containerd/config.toml
-  become: yes
-  become_user: root
+- name: Configure apt repo for kubernetes project
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: kubernetes
 
-# - name: Output directory listing for /etc/containerd
-#   shell:
-#     cmd: ls -la
-#     chdir: /etc/containerd
-#   register: CONTAINERD_CONFIG_DIRLISTING
 
-# - debug: msg={{CONTAINERD_CONFIG_DIRLISTING}}
+- name: Install kubernetes base apps (kubeadm, kubelet, kubectl)
+ 
