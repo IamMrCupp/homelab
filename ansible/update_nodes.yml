@@ -3,24 +3,28 @@
 # 
 - hosts:  raspberrypi
   tasks:
-    - name: Update apt repo cache on all nodes 
-      apt:
-        update_cache: yes
+    - name: Update the nodes!!
+      block:
+        - name: Update APT cache 
+          apt:
+            update_cache: yes
 
-    - name: Update all packages on the nodes
-      apt:
-        upgrade: yes
+        - name: Upgrade APT packages
+          apt:
+            upgrade: yes
 
-    - name: Check to see if reboot is needed (kernel updates)
-      register: reboot_needed_file
-      stat:
-        path: /var/run/reboot-required
-        get_md5: no
+        - name: Check to see if reboot is needed (kernel updates)
+          register: reboot_needed_file
+          stat:
+            path: /var/run/reboot-required
+            get_md5: no
 
-    - name: Reboot the system if needed (kernel update)
-      reboot:
-        msg: "Reboot initiated by Ansible due to CGROUP change"
-        reboot_timeout: 300
-        post_reboot_delay: 30
-        test_command: uptime
-      when: reboot_needed_file is changed
+        - name: Reboot the system if needed (kernel update)
+          reboot:
+            msg: "Reboot initiated by Ansible due to CGROUP change"
+            reboot_timeout: 300
+            post_reboot_delay: 30
+            test_command: uptime
+          when: reboot_needed_file is changed
+      become: true
+      become_user: root
