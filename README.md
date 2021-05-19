@@ -60,14 +60,12 @@ Requirements:
 │       ├── kubernetes
 │       │   └── tasks
 │       │       └── main.yml    <- kubernetes install playbook
-│       ├── microk8s
-│       │   └── tasks
-│       │       └── main.yml    <- microk8s playbook (not in use)
 │       └── sysmods
 │           └── tasks
 │               └── main.yml    <- system mods for kuberentes happen here
 ├── helm                        <- helm charts
-└── kubernetes                  <- kuberentes YAMLs
+└── kubernetes
+    └── calico.yaml             <- Calico CNI config 
 ```
 
 
