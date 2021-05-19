@@ -23,11 +23,3 @@
     creates: /etc/containerd/config.toml
   become: yes
   become_user: root
-
-# - name: Output directory listing for /etc/containerd
-#   shell:
-#     cmd: ls -la
-#     chdir: /etc/containerd
-#   register: CONTAINERD_CONFIG_DIRLISTING
-
-# - debug: msg={{CONTAINERD_CONFIG_DIRLISTING}}

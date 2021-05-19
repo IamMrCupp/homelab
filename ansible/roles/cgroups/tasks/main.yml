@@ -8,18 +8,14 @@
     state: present
     regexp: '^net\.ifnames=0'
     line: 'cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1 net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc'
-  become: true
-  become_user: root
   register: REBOOT_NEEDED
 
 - name: Reboot the system if needed
-  when: REBOOT_NEEDED is changed
   reboot:
-  become: true
-  become_user: root
-  
-# - name: Check cgroup changes post reboot
-#   shell:  cat /boot/firmware/cmdline.txt
-#   register: CGROUPS_POST_REBOOT
+    msg: "Reboot initiated by Ansible due to CGROUP change"
+    reboot_timeout: 300
+    post_reboot_delay: 30
+    test_command: uptime
+  when: REBOOT_NEEDED is changed
 
-# - debug:  msg={{CGROUPS_POST_REBOOT}}
+  
