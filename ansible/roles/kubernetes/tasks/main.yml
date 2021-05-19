@@ -12,8 +12,18 @@
   apt_repository:
     repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
     state: present
-    filename: kubernetes
+    filename: kubernetes  
 
+
+- name: Update apt cache with new repo info
+  apt:
+    update_cache: yes 
 
 - name: Install kubernetes base apps (kubeadm, kubelet, kubectl)
- 
+  apt:
+    pkg:
+      - kubeadm
+      - kubelet
+      - kubectl 
+  state: present
+  
