@@ -6,6 +6,8 @@
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
+  become: true
+  become_user: root
 
 
 - name: Configure apt repo for kubernetes project
@@ -13,17 +15,21 @@
     repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
     state: present
     filename: kubernetes  
-
+  become: true
+  become_user: root
 
 - name: Update apt cache with new repo info
   apt:
     update_cache: yes 
-
-- name: Install kubernetes base apps (kubeadm, kubelet, kubectl)
+  become: true
+  become_user: root
+  
+- name: Install kubernetes base apps 
   apt:
     pkg:
       - kubeadm
       - kubelet
       - kubectl 
-  state: present
-  
+    state: present
+  become: true
+  become_user: root
