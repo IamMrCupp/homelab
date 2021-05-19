@@ -27,7 +27,7 @@ Requirements:
         sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
     - Make note of `kubeadm join` command in output from `kubeadm init`
-- Apply network overlay (calico) `kubectl apply -f calico.yaml`
+- Apply network overlay [(calico)](https://www.projectcalico.org/) `kubectl apply -f calico.yaml`
 - Join worker nodes
     - SSH to k8s workers: `ssh USERNAME@HOSTNAME`
     - Join k8s cluster
