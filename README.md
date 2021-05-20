@@ -48,7 +48,8 @@ Requirements:
         ```
     - Make note of `kubeadm join` command in output from `kubeadm init`
 - Apply network overlay (from control-plane or remote kubectl)
-    ```kubectl apply -f calico.yaml
+    ```
+    kubectl apply -f calico.yaml
     ```
 - Join worker nodes
     - SSH to k8s worker node(s)
