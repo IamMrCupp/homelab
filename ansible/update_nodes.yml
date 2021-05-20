@@ -17,11 +17,10 @@
           register: reboot_needed_file
           stat:
             path: /var/run/reboot-required
-            get_md5: no
 
         - name: Reboot the system if needed (kernel update)
           reboot:
-            msg: "Reboot initiated by Ansible due to CGROUP change"
+            msg: "Reboot initiated by Ansible due to kernel update"
             reboot_timeout: 300
             post_reboot_delay: 30
             test_command: uptime
