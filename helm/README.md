@@ -10,6 +10,7 @@ The following packages are being used in the homelab k8s setup
     - Install provisioner 
     ```
     helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
-    --set nfs.server=x.x.x.x \
-    --set nfs.path=/exported/path
+    --set nfs.server=192.168.7.74 \
+    --set nfs.path=/volume3/docker
     ```
+
