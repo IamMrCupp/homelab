@@ -1,12 +1,38 @@
 # file: homelab/roles/calicoctl/tasks/main.yml
-#   playbook for setting up calico controller app (calicoctl) 
+#   Calico Controller
+#   - installs calicoctl and symlinks to calicoctl- 
 #  
 
 - name: Install Calico Controller App on k8s nodes"
   block:
-    - name: copy the calicoctl app to node
-      copy:
-        src: calicoctl
+    - name: determine chipset for CPU
+      shell:
+        cmd: uname -m
+        register: cputype
+
+    - name: determine OS kernel
+      shell:
+        cmd: uname -s
+        register: kerneltype
+
+    - name: setup calicoctl for ARM linux (64-bit)
+      get_url:
+        url: https://github.com/projectcalico/calicoctl/releases/download/v3.19.0/calicoctl-linux-arm64
         dest: /usr/local/bin/calicoctl
+        mode: '0755'
+
+    - name: setup calicoctl for x86_64 linux (64-bit)
+      get_url:
+        url: https://github.com/projectcalico/calicoctl/releases/download/v3.19.0/calicoctl
+        dest: /usr/local/bin/calicoctl
+        mode: '0755'
+
+    - name: create symlink to enable kubectl-calico
+      file:
+        src: /usr/local/bin/calicoctl
+        dest: /usr/local/bin/kubectl-calico
+        owner: root
+        group: root
+        state: link    
   become: true
   become_user: root

@@ -58,21 +58,26 @@ Requirements:
 │   │── homelab.yml             <- homelab playbook
 │   │── raspberrypi.yml         <- raspberrypi playbook
 │   └── roles                   <- roles for ansible live here
-│       ├── cgroups
-│       │   └── tasks
-│       │       └── main.yml    <- cgroups modification playbook
-│       ├── containerd
-│       │   └── tasks
-│       │       └── main.yml    <- containerd install playbook
-│       ├── kubernetes
-│       │   └── tasks
-│       │       └── main.yml    <- kubernetes install playbook
-│       └── sysmods
-│           └── tasks
-│               └── main.yml    <- system mods for kuberentes happen here
+│   │   ├── calicoctl
+│   │   │   ├── files
+│   │   │   └── tasks
+│   │   │       └── main.yml    <- calicoctl install playbook
+│   |   ├── cgroups
+│   |   │   └── tasks
+│   |   │       └── main.yml    <- cgroups modification playbook
+│   |   ├── containerd
+│   |   │   └── tasks
+│   |   │       └── main.yml    <- containerd install playbook
+│   |   ├── kubernetes
+│   |   │   └── tasks
+│   |   │       └── main.yml    <- kubernetes install playbook
+│   |   └── sysmods
+│   |       └── tasks
+│   |           └── main.yml    <- system mods for kuberentes happen here
+│   └── update_nodes.yml        <- update nodes playbook
 ├── helm                        <- helm charts
 └── kubernetes
-    └── calico.yaml             <- Calico CNI config 
+    └── calico.yaml             <- Calico CNI config for k8s
 ```
 
 
