@@ -7,7 +7,7 @@ The following packages are being used in the homelab k8s setup
 ```
         $ helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
-- Install provisioner 
+    - Install provisioner 
 ```
             helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
             --set nfs.server=x.x.x.x \
