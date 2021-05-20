@@ -1,9 +1,10 @@
 # file:  ./homelab/raspberypi.yml
 #   playbook for all raspberypi servers
 # 
-- hosts:  raspberrypi
+- hosts: raspberrypi
   roles:
     - cgroups
     - containerd
     - sysmods
     - kubernetes 
+    - calicoctl
