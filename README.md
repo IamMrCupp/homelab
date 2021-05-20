@@ -1,6 +1,6 @@
 # Homelab
 
-Homelab Setup
+**Homelab Setup**
 
 The following technologies are used in the homelab:
 - [Raspberry Pi4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
@@ -13,6 +13,7 @@ The following technologies are used in the homelab:
 - [containerd](https://containerd.io/)
 - [Kuberentes](https://kubernetes.io/)
 - [Calico](https://www.projectcalico.org/)
+- [Kubernetes NFS provider](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)
 
 Requirements:
 - ansible community module installed via `ansible-galaxy`
@@ -22,26 +23,40 @@ Requirements:
 ## Steps to configure the homelab
 - Clone the git repo to local machine
 - Modify hosts to make sure it matches layout
-- Update raspberry pi nodes: `ansible-playbook update_nodes.yml`
-- Configure raspberry pi nodes: `ansible-playbook raspberrypi.yml`
-- Login to k8s MASTER node: `ssh USERNAME@HOSTNAME`
-    - Pull Images: `sudo kubeadm config images pull`
-    - Init k8s MASTER: `sudo kubeadm init --pod-network-cidr=10.244.0.0/16` 
-    - Copy kubectl config to homedir
+- Update raspberry pi nodes: 
     ```
+    ansible-playbook update_nodes.yml
+    ```
+- Configure raspberry pi nodes: 
+    ```
+    ansible-playbook raspberrypi.yml
+    ```
+- Login to k8s MASTER node:
+    - Pull Images: 
+        ```
+        sudo kubeadm config images pull
+        ```
+    - Init k8s MASTER: 
+        ```
+        sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+        ```
+    - Copy kubectl config to homedir
+        ```
         mkdir -p $HOME/.kube
         sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
         sudo chown $(id -u):$(id -g) $HOME/.kube/config
-    ```
+        ```
     - Make note of `kubeadm join` command in output from `kubeadm init`
-- Apply network overlay `kubectl apply -f calico.yaml`
+- Apply network overlay (from control-plane or remote kubectl)
+    ```kubectl apply -f calico.yaml
+    ```
 - Join worker nodes
-    - SSH to k8s workers: `ssh USERNAME@HOSTNAME`
+    - SSH to k8s worker node(s)
     - Join k8s cluster
-    ```
+        ```
         sudo kubeadm join 192.168.7.140:6443 --token TOKEN --discovery-token-ca-cert-hash HASHEDSHA256
-    ```
-
+        ```
+- **PROFIT**
 
 
 ### Directory Layout:
