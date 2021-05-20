@@ -5,27 +5,19 @@
 
 - name: Install Calico Controller App on k8s nodes"
   block:
-    - name: determine chipset for CPU
-      shell:
-        cmd: uname -m
-        register: cputype
-
-    - name: determine OS kernel
-      shell:
-        cmd: uname -s
-        register: kerneltype
-
     - name: setup calicoctl for ARM linux (64-bit)
       get_url:
         url: https://github.com/projectcalico/calicoctl/releases/download/v3.19.0/calicoctl-linux-arm64
         dest: /usr/local/bin/calicoctl
         mode: '0755'
+      when: ansible_facts['architecture'] == 'aarch64' and ansible_facts['system'] == 'Linux'
 
     - name: setup calicoctl for x86_64 linux (64-bit)
       get_url:
         url: https://github.com/projectcalico/calicoctl/releases/download/v3.19.0/calicoctl
         dest: /usr/local/bin/calicoctl
         mode: '0755'
+      when: ansible_facts['architecture'] == 'x86_64' and ansible_facts['system'] == 'Linux'
 
     - name: create symlink to enable kubectl-calico
       file:
