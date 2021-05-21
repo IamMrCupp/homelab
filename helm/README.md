@@ -26,19 +26,19 @@ The following packages are being used in the homelab k8s setup
     - Install linkerd 
         - Stable
         ```
-        helm install \
+        helm install linkerd2 \
             --set-file identityTrustAnchorsPEM=ca.crt \
             --set-file identity.issuer.tls.crtPEM=issuer.crt \
             --set-file identity.issuer.tls.keyPEM=issuer.key \
-            --set identity.issuer.crtExpiry=$(date -d '+8760 hour' +"%Y-%m-%dT%H:%M:%SZ") \
+            --set identity.issuer.crtExpiry=$(date -v+8760H +"%Y-%m-%dT%H:%M:%SZ") \
             linkerd/linkerd2
         ```
         - Edge
-        ```helm install \
+        ```helm install linkerd2 \
              --set-file identityTrustAnchorsPEM=ca.crt \
             --set-file identity.issuer.tls.crtPEM=issuer.crt \
             --set-file identity.issuer.tls.keyPEM=issuer.key \
-            --set identity.issuer.crtExpiry=$(date -d '+8760 hour' +"%Y-%m-%dT%H:%M:%SZ") \
+            --set identity.issuer.crtExpiry=$(date -v+8760H +"%Y-%m-%dT%H:%M:%SZ") \
             linkerd-edge/linkerd2
         ```
 
