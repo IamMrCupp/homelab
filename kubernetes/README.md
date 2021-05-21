@@ -21,10 +21,10 @@ The following packages are being used in the homelab k8s setup
     ```
     - Install on-cluster metrics stack
     ```
-        linkerd viz install | kubectl apply -f
+        linkerd viz install | kubectl apply -f -
     ```
     - Install jaeger collector and UI
     ```
-        linkerd jaeger install | kubectl apply -f
+        linkerd jaeger install | kubectl apply -f -
     ```
 
