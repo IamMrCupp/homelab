@@ -13,3 +13,4 @@ The following packages are being used in the homelab k8s setup
     --set nfs.server=192.168.7.74 \
     --set nfs.path=/volume3/docker
     ```
+    
