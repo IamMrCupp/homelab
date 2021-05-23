@@ -27,4 +27,8 @@ The following packages are being used in the homelab k8s setup
     ```
         linkerd jaeger install | kubectl apply -f -
     ```
+    - OPTIONAL: Install mesh on k8s control-plane nodes
+    ```
+        kubectl get deploy -o yaml -n kube-system | linkerd inject - | kubectl apply -f -
+    ```
 

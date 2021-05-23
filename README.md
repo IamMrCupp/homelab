@@ -59,6 +59,9 @@ Requirements:
         ```
 - **PROFIT**
 
+Now that we have a "functional" cluster we can add some more nice-to-have things.
+- Install 
+
 
 ### Directory Layout:
 ``` 
