@@ -262,7 +262,10 @@ spec:
         env:
         - name: GOGC
           value: "80"
-        image: omnition/opencensus-collector:0.1.11
+        # replace amd64 container with one that will work on ARM  
+        # image: omnition/opencensus-collector:0.1.11
+        # use another 
+        image: cloudeyes/opencensus-collector:aarch64
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
