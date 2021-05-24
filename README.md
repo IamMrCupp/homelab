@@ -66,14 +66,14 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
 ### Directory Layout:
 ``` 
 ├── README.md                   <- this file
-├── ansible                     <- ansible related stuff
+├── ansible                     
 │   ├── .gitignore              <- gitignore file
 │   ├── ansible.cfg             <- ansible config
-│   ├── group_vars              <- group variables live here   (DIRECTORY)
+│   ├── group_vars              
 │   │   └── raspberrypi.yml     <- raspberry pi variables      
-│   ├── host_vars               <- host variables live here    (DIRECTORY)
+│   ├── host_vars               
 │   ├── hosts.yml               <- inventory file for ansible  
-│   ├── logs                    <- ansible logs                (DIRECTORY)
+│   ├── logs                    
 │   │── homelab.yml             <- homelab playbook
 │   │── raspberrypi.yml         <- raspberrypi playbook
 │   └── roles                   <- roles for ansible live here
@@ -94,9 +94,12 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
 │   |       └── tasks
 │   |           └── main.yml    <- system mods for kuberentes happen here
 │   └── update_nodes.yml        <- update nodes playbook
-├── helm                        <- helm charts
-└── kubernetes
-    └── calico.yaml             <- Calico CNI config for k8s
+├── helm                        
+│   └── README.md               <- info on helm charts installed
+└── kubernetes                  
+    ├── README.md               <- info on what k8s related yamls installed/do
+    ├── calico.yaml             <- Calico CNI config for k8s
+    └── linkerd-jaeger.yml      <- custom jaeger 
 ```
 
 
