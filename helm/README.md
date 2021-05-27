@@ -13,4 +13,26 @@ The following packages are being used in the homelab k8s setup
     --set nfs.server=192.168.7.74 \
     --set nfs.path=/volume3/docker
     ```
-    
+- [HAProxy k8s Ingress](https://github.com/haproxytech/kubernetes-ingress)
+    - Create namespace for k8s
+    ```
+    kubectl create namespace kubernetes-ingress
+    ```
+    - Configure repo and update helm package info
+    ```
+    helm repo add haproxytech https://haproxytech.github.io/helm-charts
+    helm repo update
+    ```
+    - Install HA-Proxy k8s Ingress 
+        - generate yamls for inspection
+        ```
+        helm install kubernetes-ingress haproxytech/kubernetes-ingress \
+        --debug \
+        --dry-run
+        ```
+        - Proper installation 
+        ```
+        helm install kubernetes-ingress haproxytech/kubernetes-ingress 
+        ```
+
+
