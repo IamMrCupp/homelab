@@ -75,7 +75,6 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
 │   ├── host_vars
 │   ├── hosts.yml
 │   ├── logs
-│   │   └── ansible.log
 │   ├── raspberrypi.yml
 │   ├── roles
 │   │   ├── calicoctl
