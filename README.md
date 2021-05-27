@@ -65,41 +65,45 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
 
 ### Directory Layout:
 ``` 
-├── README.md                   <- this file
-├── ansible                     
-│   ├── .gitignore              <- gitignore file
-│   ├── ansible.cfg             <- ansible config
-│   ├── group_vars              
-│   │   └── raspberrypi.yml     <- raspberry pi variables      
-│   ├── host_vars               
-│   ├── hosts.yml               <- inventory file for ansible  
-│   ├── logs                    
-│   │── homelab.yml             <- homelab playbook
-│   │── raspberrypi.yml         <- raspberrypi playbook
-│   └── roles                   <- roles for ansible live here
-│   │   ├── calicoctl
-│   │   │   ├── files
-│   │   │   └── tasks
-│   │   │       └── main.yml    <- calicoctl install playbook
-│   |   ├── cgroups
-│   |   │   └── tasks
-│   |   │       └── main.yml    <- cgroups modification playbook
-│   |   ├── containerd
-│   |   │   └── tasks
-│   |   │       └── main.yml    <- containerd install playbook
-│   |   ├── kubernetes
-│   |   │   └── tasks
-│   |   │       └── main.yml    <- kubernetes install playbook
-│   |   └── sysmods
-│   |       └── tasks
-│   |           └── main.yml    <- system mods for kuberentes happen here
-│   └── update_nodes.yml        <- update nodes playbook
-├── helm                        
-│   └── README.md               <- info on helm charts installed
-└── kubernetes                  
-    ├── README.md               <- info on what k8s related yamls installed/do
-    ├── calico.yaml             <- Calico CNI config for k8s
-    └── linkerd-jaeger.yml      <- custom jaeger 
+├── README.md
+├── ansible
+│   ├── .gitignore
+│   ├── ansible.cfg
+│   ├── group_vars
+│   │   └── raspberrypi.yml
+│   ├── homelab.yml
+│   ├── host_vars
+│   ├── hosts.yml
+│   ├── logs
+│   │   └── ansible.log
+│   ├── raspberrypi.yml
+│   ├── roles
+│   │   ├── calicoctl
+│   │   │   ├── files
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── cgroups
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── containerd
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── kubernetes
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   └── sysmods
+│   │       ├── files
+│   │       │   ├── 99-kubernetes-cri.conf
+│   │       │   └── containerd.conf
+│   │       └── tasks
+│   │           └── main.yml
+│   └── update_nodes.yml
+├── helm
+│   └── README.md
+└── kubernetes
+    ├── README.md
+    ├── calico.yaml
+    └── linkerd-jaeger.yml
 ```
 
 
