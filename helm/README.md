@@ -36,6 +36,22 @@ The following packages are being used in the homelab k8s setup
         ```
 - [Certificate Manager](https://cert-manager.io/)
     + Configure Namespace
+    ```
+    kubectl create namespace cert-manager
+    ```
     + Install helm repo and update helm
+    ```
+    helm repo add jetstack https://charts.jetstack.io
+    helm repo update
+    ```
     + Install certificate-manager via helm
+    ```
+    helm install \
+    cert-manager jetstack/cert-manager \
+    --namespace cert-manager \
+    --create-namespace \
+    --version v1.3.1 \
+    --set installCRDs=true
+    ```
+
 
