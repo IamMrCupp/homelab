@@ -63,7 +63,13 @@ Requirements:
 - **PROFIT**
 
 Now that we have a "functional" cluster we can add some more nice-to-have things.
-- Install 
+- Install modules into the k8s cluster to make things more functional
+    + Setup NFS Provisioner
+    + Setup Linkerd
+    + Setup MetalLB
+    + Setup nginx-ingress
+    + Setup haproxy-ingress
+    + Setup cert-manager
 
 
 ### Directory Layout:

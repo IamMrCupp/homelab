@@ -2,6 +2,7 @@
 
 ## Kubernetes Packages via kubectl 
 The following packages are being used in the homelab k8s setup
+
 - [Linkerd](https://linkerd.io/)
     - Install linkerd cli
     ```
@@ -37,3 +38,14 @@ The following packages are being used in the homelab k8s setup
         kubectl get deploy -o yaml -n kube-system | linkerd inject - | kubectl apply -f -
     ```
 
+- [MetalLB]()
+    + Install via github repo using kubectl
+    ```
+    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
+
+    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/metallb.yaml
+
+    # On first install only
+    kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+    ```
+    + Setup ConfigMap to enable to 
