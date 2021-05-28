@@ -14,6 +14,9 @@ The following technologies are used in the homelab:
 - [Kuberentes](https://kubernetes.io/)
 - [Calico](https://www.projectcalico.org/)
 - [Kubernetes NFS provider](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)
+- [Linkerd](https://linkerd.io/)
+- [Nginx](https://www.nginx.com/)
+- [HAProxy](https://www.haproxy.com/)
 
 Requirements:
 - ansible community module installed via `ansible-galaxy`
