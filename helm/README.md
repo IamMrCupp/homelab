@@ -2,6 +2,7 @@
 
 ## Kubernetes Packages via HELM (v3)
 The following packages are being used in the homelab k8s setup
+
 - [NFS Subdirectory External Provisioner](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)
     + Setup kubernetes-sigs
     ```
@@ -13,27 +14,7 @@ The following packages are being used in the homelab k8s setup
     --set nfs.server=192.168.7.74 \
     --set nfs.path=/volume3/docker
     ```
-- [HAProxy k8s Ingress](https://github.com/haproxytech/kubernetes-ingress)
-    + Create namespace for k8s
-    ```
-    kubectl create namespace kubernetes-ingress
-    ```
-    + Configure repo and update helm package info
-    ```
-    helm repo add haproxytech https://haproxytech.github.io/helm-charts
-    helm repo update
-    ```
-   + Install HA-Proxy k8s Ingress 
-       * generate yamls for inspection
-        ```
-        helm install kubernetes-ingress haproxytech/kubernetes-ingress \
-        --debug \
-        --dry-run
-        ```
-       * Proper installation 
-        ```
-        helm install kubernetes-ingress haproxytech/kubernetes-ingress 
-        ```
+
 - [Certificate Manager](https://cert-manager.io/)
     + Configure Namespace
     ```
@@ -54,4 +35,41 @@ The following packages are being used in the homelab k8s setup
     --set installCRDs=true
     ```
 
+- [nginx kubernetes-ingress]()
+    + Install helm repo and update cache
+    ```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+    ```
+    + Install 
+    ```
+helm install \
+kubernetes-ingress-nginx ingress-nginx/ingress-nginx \
+--namespace kubernetes-ingress-nginx
+--create-namespace
+    ```
+    + Post Install (linkerd injection)
+    ```
+kubectl get deploy --namespace kubernetes-ingress-nginx -o yaml | linkerd inject - | kubectl apply -f -
+    ```
 
+- [HAPROXY kubernetes-ingress]()
+    + Create Namespace
+    + Install helm repo and update cache
+    ```
+helm repo add haproxytech https://haproxytech.github.io/helm-charts
+helm repo update
+    ```
+    + Install 
+    ```
+helm install \
+kubernetes-ingress-haproxy haproxytech/kubernetes-ingress \
+--namespace kubernetes-ingress-haproxy  \
+--create-namespace \
+--set defaultBackend.image.repository=gcr.io/google_containers/defaultbackend-arm
+    ```
+    + Post Install (linkerd injection)
+    ```
+kubectl get deploy --namespace kubernetes-ingress-haproxy -o yaml | linkerd inject - | kubectl apply -f -
+    ```
+    
