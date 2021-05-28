@@ -36,12 +36,12 @@ cert-manager jetstack/cert-manager \
 ```
 
 - [nginx kubernetes-ingress]()
-    + Install helm repo and update cache
+    - Install helm repo and update cache
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 ```
-    + Install 
+    - Install 
 ```
 helm install \
 kubernetes-ingress-nginx ingress-nginx/ingress-nginx \
