@@ -38,7 +38,7 @@ The following packages are being used in the homelab k8s setup
         kubectl get deploy -o yaml -n kube-system | linkerd inject - | kubectl apply -f -
     ```
 
-- [MetalLB]()
+- [MetalLB](https://metallb.universe.tf/)
     + Install via github repo using kubectl
     ```
     kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
@@ -89,7 +89,7 @@ The following packages are being used in the homelab k8s setup
     --set installCRDs=true
     ```
 
-- [nginx kubernetes-ingress]()
+- [nginx kubernetes-ingress](https://kubernetes.github.io/ingress-nginx)
     - Install helm repo and update cache
     ```
     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -107,7 +107,7 @@ The following packages are being used in the homelab k8s setup
     kubectl get deploy --namespace kubernetes-ingress-nginx -o yaml | linkerd inject - | kubectl apply -f -
     ```
 
-- [HAPROXY kubernetes-ingress]()
+- [HAPROXY kubernetes-ingress](https://haproxytech.github.io/)
     + Create Namespace
     + Install helm repo and update cache
     ```
