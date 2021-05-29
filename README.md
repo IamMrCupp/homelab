@@ -76,42 +76,47 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
 ``` 
 ├── README.md
 ├── ansible
-│   ├── .gitignore
-│   ├── ansible.cfg
-│   ├── group_vars
-│   │   └── raspberrypi.yml
-│   ├── homelab.yml
-│   ├── host_vars
-│   ├── hosts.yml
-│   ├── logs
-│   ├── raspberrypi.yml
-│   ├── roles
-│   │   ├── calicoctl
-│   │   │   ├── files
-│   │   │   └── tasks
-│   │   │       └── main.yml
-│   │   ├── cgroups
-│   │   │   └── tasks
-│   │   │       └── main.yml
-│   │   ├── containerd
-│   │   │   └── tasks
-│   │   │       └── main.yml
-│   │   ├── kubernetes
-│   │   │   └── tasks
-│   │   │       └── main.yml
-│   │   └── sysmods
-│   │       ├── files
-│   │       │   ├── 99-kubernetes-cri.conf
-│   │       │   └── containerd.conf
-│   │       └── tasks
-│   │           └── main.yml
-│   └── update_nodes.yml
-├── helm
-│   └── README.md
+│   ├── ansible.cfg
+│   ├── group_vars
+│   │   └── raspberrypi.yml
+│   ├── homelab.yml
+│   ├── host_vars
+│   ├── hosts.yml
+│   ├── logs
+│   ├── raspberrypi.yml
+│   ├── roles
+│   │   ├── calicoctl
+│   │   │   ├── files
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── cgroups
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── containerd
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   ├── kubernetes
+│   │   │   └── tasks
+│   │   │       └── main.yml
+│   │   └── sysmods
+│   │       ├── files
+│   │       │   ├── 99-kubernetes-cri.conf
+│   │       │   └── containerd.conf
+│   │       └── tasks
+│   │           └── main.yml
+│   └── update_nodes.yml
 └── kubernetes
     ├── README.md
-    ├── calico.yaml
-    └── linkerd-jaeger.yml
+    ├── calico
+    │   └── calico.yml
+    ├── linkerd
+    │   └── linkerd-jaeger.yml
+    ├── metallb
+    │   └── config.yml
+    └── tmp
+        ├── test-claim.yaml
+        ├── test-pod.yaml
+        └── test-resources.yml
 ```
 
 
