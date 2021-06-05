@@ -3,8 +3,5 @@
 # 
 - hosts: raspberrypi
   roles:
-    - cgroups
-    - containerd
-    - sysmods
-    - kubernetes 
-    - calicoctl
+    - nfs-common
+    - avahi-daemon

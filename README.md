@@ -30,9 +30,9 @@ Requirements:
     ```
     ansible-playbook update_nodes.yml
     ```
-- Configure raspberry pi nodes: 
+- Configure raspberry pi k8s nodes: 
     ```
-    ansible-playbook raspberrypi.yml
+    ansible-playbook k8s.yml
     ```
 - Login to k8s MASTER node:
     - Pull Images: 
@@ -60,7 +60,6 @@ Requirements:
         ```
         sudo kubeadm join 192.168.7.140:6443 --token TOKEN --discovery-token-ca-cert-hash HASHEDSHA256
         ```
-- **PROFIT**
 
 Now that we have a "functional" cluster we can add some more nice-to-have things.
 - Install modules into the k8s cluster to make things more functional
@@ -70,6 +69,12 @@ Now that we have a "functional" cluster we can add some more nice-to-have things
     + Setup nginx-ingress
     + Setup haproxy-ingress
     + Setup cert-manager
+
+Configure External Access via DMZ node
+- Configure DMZ Node via Ansible playbook **(TODO)**
+
+
+**PROFIT**
 
 
 ### Directory Layout:
