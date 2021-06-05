@@ -24,6 +24,6 @@
             reboot_timeout: 300
             post_reboot_delay: 30
             test_command: uptime
-          when: reboot_needed_file is present
+          when: reboot_needed_file.stat.exists == true
       become: true
       become_user: root
