@@ -1,0 +1,10 @@
+# file:  ./homelab/k8s.yml
+#   playbook for all k8s servers
+# 
+- hosts: k8s
+  roles:
+    - cgroups
+    - containerd
+    - sysmods
+    - kubernetes 
+    - calicoctl

@@ -1,4 +1,4 @@
-# file:  ./homelab/raspberypi.yml
+ # file:  ./homelab/raspberypi.yml
 #   playbook for all raspberypi servers
 # 
 - hosts:  raspberrypi
@@ -24,6 +24,6 @@
             reboot_timeout: 300
             post_reboot_delay: 30
             test_command: uptime
-          when: reboot_needed_file is changed
+          when: reboot_needed_file is present
       become: true
       become_user: root
