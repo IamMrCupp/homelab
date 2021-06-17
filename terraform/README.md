@@ -2,7 +2,7 @@
 
 **Homelab Setup**
 
-The following items are under control of terraform in the homelab setup:
+The following items are under control of terraform (using terragrunt) in the homelab setup:
 - DNS
     + Internal DNS
         * Tech-Noid Systems (tech-noid.net)
@@ -12,4 +12,4 @@ The following items are under control of terraform in the homelab setup:
         * Tech-Noid Systems (tech-noid.net)
         * Emotional Support Pizza (emotionalsupportpizza.com)
         * MrCupp.com Personal Site (mrcupp.com)
-- Kubernetes Apps
+> - Kubernetes Apps   
