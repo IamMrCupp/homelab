@@ -1,0 +1,10 @@
+# file: homelab/ansible/roles/hostsfile/tasks/main.yml
+#   - update the /etc/hosts file on the nodes
+#  
+
+- name: Update /etc/hosts file
+  block:
+    - name: copy /etc/hosts to filesystem
+      
+  become: true
+  become_user: root

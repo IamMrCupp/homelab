@@ -1,0 +1,22 @@
+127.0.0.1 localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+# added by hand by amc 2021-05-09
+# NAS Box
+192.168.7.74	dysnomia-01
+192.168.7.75	dysnomia-02
+
+# raspberry pi cluster
+192.168.7.140	rpi01	charon
+192.168.7.141	rpi02	nix
+192.168.7.142	rpi03	hydra
+192.168.7.143	rpi04	styx
+192.168.7.144	rpi05	kerberos
+192.168.7.150 	rpi06	eris
