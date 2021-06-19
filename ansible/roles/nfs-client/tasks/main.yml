@@ -1,22 +1,25 @@
-# file: homelab/roles/containerd/tasks/main.yml
-#   playbook for setting up containerd 
+# file: homelab/roles/nfs-client/tasks/main.yml
+#   playbook for setting up nfs-client 
 #  
-- name: Install containerd runtime and related items!
+- name: Install nfs-client daemon!
   block:
-    - name: Install containerd via apt
+    - name: Install nfs-client via apt
       apt:
         pkg:
-          - containerd
+          - nfs-client
 
-    - name: Create containerd config directory
+    - name: Create homelab NFS share location on filesystem
       file:
-        path: /etc/containerd
+        path: /nfs/nas
         state:  directory
 
-    - name: Create containerd config and place into /etc/containerd
-      shell:
-        cmd: /usr/bin/containerd config default > config.toml
-        chdir: /etc/containerd/
-        creates: /etc/containerd/config.toml
+    - name: Mount NFS volume from NAS
+      mount:
+        src: 192.168.7.74:/volume3/docker
+        path: /nfs/nas
+        opts: auto
+        state: mounted
+        fstype: nfs
+        
   become: true
   become_user: root
