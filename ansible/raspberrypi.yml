@@ -3,5 +3,5 @@
 # 
 - hosts: raspberrypi
   roles:
-    - nfs-common
-    - avahi-daemon
+    - nfs-client
+  #  - avahi-daemon
