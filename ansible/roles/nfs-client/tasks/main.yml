@@ -15,11 +15,11 @@
 
     - name: Mount NFS volume from NAS
       mount:
-        src: 192.168.7.74:/volume3/docker
-        path: /nfs/nas
-        opts: auto
+        src: "192.168.7.74:/volume3/docker"
+        path: "/nfs/nas"
+        opts: "auto,x-systemd.automount,x-systemd.device-timeout=10,timeo=14"
         state: mounted
         fstype: nfs
-        
+
   become: true
   become_user: root
