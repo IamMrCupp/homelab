@@ -1,3 +1,12 @@
+###############################################################################
+#                               NOTICE!!!                                     #
+#                                                                             #
+#                    THIS FILE IS UNDER ANSIBLE CONTROL                       #
+#    MANUAL CHANGES TO THIS FILE CAN BE OVERWRITTEN AT ANY POINT IN TIME      #
+#                                                                             #
+#                               NOTICE!!!                                     #
+###############################################################################
+
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
@@ -8,8 +17,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 
-# added by hand by amc 2021-05-09
-# NAS Box
+# NAS Box Address (dual nics)
 192.168.7.74	dysnomia-01
 192.168.7.75	dysnomia-02
 

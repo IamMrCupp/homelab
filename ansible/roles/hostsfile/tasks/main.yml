@@ -4,7 +4,7 @@
 
 - name: Update /etc/hosts file
   block:
-    - name: configure kernel module loading for containerd
+    - name: update /etc/hosts file on the node
       copy:
         src: hosts
         dest: /etc/hosts
