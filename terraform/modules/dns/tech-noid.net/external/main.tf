@@ -2,12 +2,6 @@
 # - controls the domain names in DNS at namecheap.com
 # - domain: tech-noid.net
 
-# import the providers from parent dir(s)
-import "providers" {
-  config_path = find_in_parent_folders("providers.tf")
-}
-
-
 # gmail CNAME for email
 resource "namecheap_record" "cname-mail-tech-noid-net" {
   name = "mail"  
@@ -17,7 +11,7 @@ resource "namecheap_record" "cname-mail-tech-noid-net" {
   domain = "tech-noid.net"
 } 
 
-# Create a DNS A Record for a domain you own
+# cname.bitly.com for tech-noid.net domain
 resource "namecheap_record" "cname-bitly-tech-noid-net" {
   name = "226ceff29825"  
   address = "cname.bitly.com."

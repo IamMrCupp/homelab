@@ -1,0 +1,12 @@
+# file: homelab/ansible/roles/avahi-daemon/tasks/main.yml
+#   playbook for setting up avahi-daemon 
+#  
+- name: Install avahi-daemon
+  block:
+    - name: Install avahi-daemon via apt
+      apt:
+        pkg:
+          - avahi-daemon
+
+  become: true
+  become_user: root

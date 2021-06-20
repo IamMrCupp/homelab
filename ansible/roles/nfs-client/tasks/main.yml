@@ -1,4 +1,4 @@
-# file: homelab/roles/nfs-client/tasks/main.yml
+# file: homelab/ansible/roles/nfs-client/tasks/main.yml
 #   playbook for setting up nfs-client 
 #  
 - name: Install nfs-client daemon!

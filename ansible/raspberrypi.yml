@@ -5,4 +5,4 @@
   roles:
     - hostsfile
     - nfs-client
-  #  - avahi-daemon
+    - avahi-daemon
