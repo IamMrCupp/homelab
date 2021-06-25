@@ -5,5 +5,5 @@
 
 # pull in the module for the DNS changes
 module "emotionalsupportpizza-namecheap-dns" {
-  source = "../../modules/dns-namecheap/emotionalsupportpizza-com/main.tf"
+  source = "../../../modules/dns-namecheap/emotionalsupportpizza-com/""
 }
