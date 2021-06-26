@@ -1,5 +1,5 @@
 /* 
-    file: modules/dns-namecheap/tech-noid-net/main.tf
+    file: modules/dns-namecheap/tech-noid/main.tf
     - controls the domain names in DNS at namecheap.com
     - domain: tech-noid.net
 */

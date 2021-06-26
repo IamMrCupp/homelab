@@ -1,5 +1,5 @@
 /* 
-    file: modules/dns-namecheap/tech-noid-net/variables.tf
+    file: modules/dns-namecheap/emotionalsupportpizza/variables.tf
 */
 
 variable "username" {
