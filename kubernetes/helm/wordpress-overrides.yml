@@ -1,0 +1,5 @@
+# file:  kubernetes/helm/wordpress-overrides.yml
+#   -  use:       setup wordpress via helm
+#
+#   -  requires:  bitnami/wordpress
+
