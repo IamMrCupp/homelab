@@ -1,5 +1,5 @@
 /*
-    file: apps/emotionalsupportpizza/db/variables.tf
+    file: apps/emotionalsupportpizza/website/variables.tf
         - variables for use in terraform
 */
 

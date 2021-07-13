@@ -78,6 +78,7 @@ playbooks/logs
 .terraform/
 .vagrant/
 .secrets/
+secrets/
 
 # SSH Keys
 *.pem
@@ -90,8 +91,7 @@ playbooks/logs
 terraform.tfvars
 
 # secrets
-secrets.yaml
-secrets.yml
+secrets.* 
 
 # Ignore Mac .DS_Store files
 .DS_Store
