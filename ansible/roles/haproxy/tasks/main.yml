@@ -1,0 +1,20 @@
+# file: homelab/roles/haproxy/tasks/main.yml
+#   playbook for setting up haproxy 
+
+- name: Setup HAProxy for tech-noid.net DMZ node
+  block:
+    - name: install haproxy
+      apt:
+        name: haproxy
+        state: present
+
+    - name: install haproxyctl tool
+      apt:
+        name: haproxyctl
+        state: present
+
+#    - name: copy in the custom config file
+#      copy:
+        
+  become: true
+  become_user: root
