@@ -3,6 +3,6 @@
 # 
 - hosts: dmz
   roles:
-    - openvpn
     - haproxy
-    - bind9
+   # - bind9
+   # - openvpn
