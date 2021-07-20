@@ -26,7 +26,7 @@ resource "kubernetes_namespace" "esp-website_k8s_namespace" {
 resource "kubernetes_deployment" "eps-website_deployment" {
     metadata {
         name        = "ESPwebsite"
-        namespace   = kubernetes_namespace.test.metadata.0.name
+        namespace   = kubernetes_namespace.esp-website_k8s_namespace.metadata.0.name
     }
     spec {
         replicas = 2
