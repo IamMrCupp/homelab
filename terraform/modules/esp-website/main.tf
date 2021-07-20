@@ -32,13 +32,13 @@ resource "kubernetes_deployment" "eps-website_deployment" {
         replicas = 2
         selector {
             match_labels = {
-                app = EmotionalSupportPizza
+                app = "EmotionalSupportPizza"
             }
         }
         template {
             metadata {
                 labels {
-                    app = EmotionalSupportPizza
+                    app = "EmotionalSupportPizza"
                 }
             }
             spec {
