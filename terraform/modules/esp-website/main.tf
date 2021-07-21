@@ -25,35 +25,35 @@ resource "kubernetes_namespace" "esp-website_k8s_namespace" {
 
 resource "kubernetes_deployment" "eps-website_deployment" {
     metadata {
-        name        = "ESPwebsite"
+        name        = "esp-website"
         namespace   = kubernetes_namespace.esp-website_k8s_namespace.metadata.0.name
     }
     spec {
         replicas = 2
         selector {
             match_labels = {
-                app = "EmotionalSupportPizza"
+                app = "emotional-support-pizza"
             }
         }
         template {
             metadata {
-                labels {
-                    app = "EmotionalSupportPizza"
+                labels = {
+                    app = "emotional-support-pizza"
                 }
             }
             spec {
                 container {
                     image   = "iammrcupp/esp_project:v2.0.0"
-                    name    = "ESPwebsite"
+                    name    = "esp-website"
                     port {
                         container_port = 80
                     }
                     resources {
-                        limits {
+                        limits = {
                             cpu     = "0.5"
                             memory  = "512Mi"
                         }
-                        requests {
+                        requests = {
                             cpu     = "250m"
                             memory  = "50Mi"
                         }
@@ -66,7 +66,7 @@ resource "kubernetes_deployment" "eps-website_deployment" {
 
 resource "kubernetes_service" "esp-website_service" {
     metadata {
-        name        = "ESPwebsite"
+        name        = "esp-website"
         namespace   = kubernetes_namespace.esp-website_k8s_namespace.metadata.0.name
     }
     spec {
