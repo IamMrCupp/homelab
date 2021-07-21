@@ -76,7 +76,7 @@ resource "kubernetes_service" "esp-website_service" {
         selector = {
             app = kubernetes_deployment.eps-website_deployment.spec.0.template.0.metadata.0.labels.app
         }
-        type = "NodePort"
+        type = "LoadBalancer"
         port {
             node_port   = 30201
             port        = 80
