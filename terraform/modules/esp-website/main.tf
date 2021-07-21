@@ -37,6 +37,9 @@ resource "kubernetes_deployment" "eps-website_deployment" {
         }
         template {
             metadata {
+                annotations = {
+                    "linkerd.io/inject" = "enabled"
+                }
                 labels = {
                     app = "emotional-support-pizza"
                 }
