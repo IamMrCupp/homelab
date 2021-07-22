@@ -5,16 +5,29 @@
   block:
     - name: install haproxy
       apt:
-        name: haproxy
-        state: present
+        name:   haproxy
+        state:  present
 
     - name: install haproxyctl tool
       apt:
-        name: haproxyctl
-        state: present
+        name:   haproxyctl
+        state:  present
 
-#    - name: copy in the custom config file
-#      copy:
-        
-  become: true
-  become_user: root
+    - name: copy in the custom config file
+      copy:
+        src:    haproxy.conf
+        dest:   /etc/haproxy/haproxy.conf
+        owner:  root
+        group:  root
+        mode:   '0644'
+        backup: yes
+      register: service_config
+
+    - name: Restart haproxy if config is updated/changed
+      service:
+        name: haproxy
+        state: restarted
+      when: service_config.changed
+  
+  become:       true
+  become_user:  root
