@@ -15,8 +15,8 @@
 
     - name: copy in the custom config file
       copy:
-        src:    haproxy.conf
-        dest:   /etc/haproxy/haproxy.conf
+        src:    haproxy.cfg
+        dest:   /etc/haproxy/haproxy.cfg
         owner:  root
         group:  root
         mode:   '0644'
