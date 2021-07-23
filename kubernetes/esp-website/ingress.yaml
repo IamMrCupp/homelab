@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: esp-website-ingress
+  namespace: emotional-support-pizza
+  labels:
+    name: esp-website
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #cert-manager.io/issuer: "letsencrypt-staging"
+spec:
+  tls:
+  - hosts:
+    - "*.emotionalsupportpizza.com"
+    - "emotionalsupportpizza.com"
+    secretName: esp_website_https
+  rules:
+  - hosta:
+      - "*.emotionalsupportpizza.com"
+      - "emotionalsupportpizza.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: esp-website-nodeport
+            port: 
+              number: 80

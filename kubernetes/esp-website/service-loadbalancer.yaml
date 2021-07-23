@@ -1,0 +1,14 @@
+# setup a LoadBalancer for access to esp website
+apiVersion: v1
+kind: Service
+metadata:
+  name: esp-website-nodeport
+  namespace: emotional-support-pizza
+spec:
+  selector:
+    app: esp-website
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30200
