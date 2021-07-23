@@ -46,11 +46,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: esp-website-nodeport
+  name: esp-website
   namespace: emotional-support-pizza
 spec:
   selector:
-    app: esp-website
+    app: emotional-support-pizza
   type: NodePort
   ports:
   - port: 80
