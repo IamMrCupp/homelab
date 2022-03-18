@@ -1,0 +1,32 @@
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tns-website-ingress
+  namespace: technoidsystems
+  labels:
+    name: tns-website
+    app: technoidsystems
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/acme-challenge-type: http01
+    
+spec:
+  tls:
+  - hosts:
+    - "tech-noid.net"
+    secretName: tns-website-https
+  rules:
+  - host: tech-noid.net
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tns-website
+            port: 
+              number: 80
